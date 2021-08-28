@@ -16,12 +16,19 @@ const randomFunc = {
 };
 
 generateEl.addEventListener('click', () => {
-    const length = lengthEl.nodeValue;
+    const length = +lengthEl.value;
     const hasLower = lowercaseEl.checked;
     const hasUpper = uppercaseEl.checked;
     const hasNumber = numbersEl.checked;
     const hasSymbol = symbolsEl.checked;
-    generatePass(hasLower, hasUpper, hasNumber, hasSymbol, length);
+    
+    resultEl.innerText = generatePassword(
+        hasLower, 
+        hasUpper, 
+        hasNumber, 
+        hasSymbol, 
+        length
+        );
 });
 
 //generator functions
