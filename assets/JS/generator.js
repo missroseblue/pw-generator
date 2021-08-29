@@ -33,6 +33,25 @@ generateEl.addEventListener('click', () => {
 });
 
 
+
+
+//Copy password to clipboard
+clipboardEl.addEventListener('click'), () => {
+    const textarea = document.createElement('textarea');
+    const password = resultEl.innerText;
+
+    if(!password) {
+        return;
+    }
+
+    textarea.value = password;
+    document.body.appendChild(textarea);
+    textarea.select();
+    document.execCommand('copy');
+    textarea.remove();
+    alert('Password copied to clipboard!');
+};
+
 //Generate password function
 function generatePassword(lower, upper, number, symbol, length) {
 
@@ -59,24 +78,6 @@ function generatePassword(lower, upper, number, symbol, length) {
        return finalPassword;
    }
 }
-
-//Copy password to clipboard
-clipboardEl.addEventListener('click'), () => {
-    const textarea = document.createElement('textarea');
-    const password = resultEl.innerText;
-
-    if(!password) {
-        return;
-    }
-
-    textarea.value = password;
-    document.body.appendChild(textarea);
-    textarea.select();
-    document.execCommand('copy');
-    textarea.remove();
-    alert('Password copied to clipboard!');
-};
-
 
 //generator functions
 function getRandomLower (){
